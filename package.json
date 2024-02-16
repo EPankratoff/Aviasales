@@ -40,18 +40,11 @@
     "typescript": "^5.2.2",
     "vite": "^5.1.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --quiet --fix",
-      "prettier --write --ignore-unknown"
-    ],
-    "*.{json,html}": [
-      "prettier --write --ignore-unknown"
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
     ]
   }
 }
+
