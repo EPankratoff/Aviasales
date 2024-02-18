@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import ButtonTabs from '../ButtonTabs/ButtonTabs';
 import Filter from '../Filter/Filter';
+import TicketList from '../TicketList/TicketList';
 
 import classes from './App.module.scss';
 
@@ -16,10 +18,16 @@ function App() {
           </a>
         </div>
         <main className={classes['app-main']}>
-          <aside className={classes['app-main_left']}>
+          <aside className={classes['app-main_filter']}>
             <Filter />
           </aside>
-          <section>asda1</section>
+          <section className={classes['app-main_ticket']}>
+            <ButtonTabs />
+            <TicketList />
+            <button type="button" className={classes['app-main_ticket_btn']}>
+              Показать еще 5 фильмов
+            </button>
+          </section>
         </main>
       </div>
     </div>

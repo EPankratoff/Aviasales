@@ -1,0 +1,36 @@
+.sort {
+  padding-bottom: 20px;
+  &-button {
+    border: 1px solid #dfe5ec;
+    background: #ffffff;
+    padding: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+
+    &:hover {
+      background-color: #f6f6f6;
+    }
+    &:focus {
+      background: #2196f3;
+      color: #ffffff;
+      border: 1px solid #2196f3;
+    }
+    &:active {
+      background: #2196f3;
+      color: #ffffff;
+      border: 1px solid #2196f3;
+    }
+  }
+}
