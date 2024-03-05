@@ -1,4 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useEffect } from 'react';
+
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchSearchId } from '../../store/fetchSlice';
 import ButtonTabs from '../ButtonTabs/ButtonTabs';
 import Filter from '../Filter/Filter';
 import TicketList from '../TicketList/TicketList';
@@ -9,6 +13,14 @@ import classes from './App.module.scss';
 import logo from '/src/assets/Logo.svg';
 
 function App() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const storeFetch = useAppSelector((state) => state.fetchReducer);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchSearchId());
+  }, [dispatch]);
+
   return (
     <div className={classes['app-wrapper']}>
       <div className={classes.app}>
