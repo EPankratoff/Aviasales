@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect } from 'react';
 
+import Spinner from '../Spinner/Spinner';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { fetchSearchId } from '../../store/fetchSlice';
+import { fetchSearchId, fetchTickets } from '../../store/fetchSlice';
 import ButtonTabs from '../ButtonTabs/ButtonTabs';
 import Filter from '../Filter/Filter';
 import TicketList from '../TicketList/TicketList';
@@ -21,6 +22,15 @@ function App() {
     dispatch(fetchSearchId());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (storeFetch.searchId && !storeFetch.loading && !storeFetch.stop) {
+      dispatch(fetchTickets(storeFetch.searchId));
+    }
+  }, [storeFetch.searchId, storeFetch.loading, storeFetch.stop, dispatch]);
+
+  const spinner = storeFetch.loading ? <Spinner /> : null;
+  const content = !(storeFetch.loading || storeFetch.error) ? <TicketList /> : null;
+
   return (
     <div className={classes['app-wrapper']}>
       <div className={classes.app}>
@@ -35,7 +45,8 @@ function App() {
           </aside>
           <section className={classes['app-main_ticket']}>
             <ButtonTabs />
-            <TicketList />
+            {spinner}
+            {content}
             <button type="button" className={classes['app-main_ticket_btn']}>
               Показать еще 5 фильмов
             </button>
