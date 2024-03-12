@@ -27,10 +27,31 @@
       color: #ffffff;
       border: 1px solid #2196f3;
     }
-    &:active {
+    &--active {
       background: #2196f3;
       color: #ffffff;
       border: 1px solid #2196f3;
+      &:hover {
+        background-color: #249cff;
+      }
+    }
+  }
+}
+
+@media (max-width: 880px) {
+  .sort {
+    display: flex;
+    &-button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .sort {
+    display: block;
+    &-button {
+      width: 100%;
     }
   }
 }

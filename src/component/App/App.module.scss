@@ -5,6 +5,24 @@
   background: #e5e5e5;
 }
 
+@keyframes planeFligth {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  48% {
+    transform: translate(0%, -100%);
+  }
+  50% {
+    opacity: 0;
+  }
+  52% {
+    transform: translate(-100%, 0%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
 .app {
   width: 960px;
   background: #f3f7fa;
@@ -14,16 +32,65 @@
   align-items: center;
   padding: 0 103px 50px 103px;
   &-header {
-    padding: 50px;
-    display: flex;
-    align-items: center;
+    height: 92px;
+    position: relative;
+    width: 82px;
+
+    &_plane {
+      height: 60px;
+      left: 50%;
+      position: absolute;
+      top: 46%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 60px;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+
+      &_img {
+        height: 60px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 60px;
+        &_onload {
+          animation: planeFligth 2s infinite normal cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+      }
+    }
+
+    &_form {
+      height: 98px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 82px;
+      z-index: 1;
+    }
+
+    &__spinner {
+      top: 11.5rem;
+    }
   }
 
   &-main {
     display: flex;
     gap: 20px;
 
-    &_filter {
+    &_spin {
+      width: auto;
+      height: 20px;
+    }
+
+    &_message {
+      padding: 25px;
+      border: 2px dashed rgb(33, 150, 243);
+      border-radius: 6px;
+      margin-bottom: 20px;
     }
 
     &_ticket {
@@ -49,5 +116,30 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 55em) {
+  .app {
+    padding: 0 3rem 0 3rem;
+
+    &-main {
+      flex-direction: column;
+    }
+  }
+  .app-header {
+    padding: 1rem 0 2rem 0;
+  }
+
+  .content {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
+  }
+  .filter {
+    width: 100%;
+  }
+  .tickets-section {
+    width: 100%;
   }
 }

@@ -7,8 +7,8 @@ import Ticket from './Ticket/Ticket';
 import classes from './TicketList.module.scss';
 
 export default function TicketList() {
-  const storeTicketsList = useAppSelector((state) => state.fetchReducer);
-  const tiketsItem = storeTicketsList.tickets.map((ticket) => (
+  const storeTicketsList = useAppSelector((state) => state.ticketListReducer);
+  const tiketsItem = storeTicketsList.renderedTickets.map((ticket) => (
     <li key={uniqid.time('ticket:')}>
       <Ticket ticketData={ticket} />
     </li>
