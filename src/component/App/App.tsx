@@ -89,7 +89,7 @@ function App() {
               onClick={() => !storeFetch.loading && takeFiveMore()}
               className={classes['app-main_ticket_btn']}
             >
-              Показать еще 5 фильмов
+              Показать еще 5 билетов!
             </button>
           </section>
         </main>
